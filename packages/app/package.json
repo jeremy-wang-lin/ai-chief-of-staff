@@ -1,0 +1,15 @@
+{
+  "name": "@lcos/app",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": { "lcos": "./src/cli/main.ts" },
+  "dependencies": {
+    "@hono/node-server": "^2.1.0",
+    "@lcos/core": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "commander": "^12.1.0",
+    "hono": "^4.13.1",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": { "@types/node": "^20.14.0" }
+}

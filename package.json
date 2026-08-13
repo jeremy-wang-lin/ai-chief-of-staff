@@ -1,0 +1,17 @@
+{
+  "name": "ai-chief-of-staff",
+  "private": true,
+  "packageManager": "pnpm@11.18.0",
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "test": "vitest run",
+    "lcos": "tsx packages/app/src/cli/main.ts",
+    "serve": "tsx packages/app/src/server/main.ts",
+    "mcp": "tsx packages/app/src/mcp/main.ts",
+    "web:dev": "pnpm --filter @lcos/web dev",
+    "web:build": "pnpm --filter @lcos/web build",
+    "//typecheck": "逐 workspace package 執行,而不是在這裡手抄一份 tsconfig 清單:新增 package(REST server、MCP server)時沒人會記得回來改這一行,而忘了改的下場是那個 package 從此靜靜地沒被檢查過。代價是每個 package 都必須有自己的 tsconfig.json。",
+    "typecheck": "pnpm -r exec tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": { "typescript": "^5.5.0", "vitest": "^3.2.6", "tsx": "^4.16.0" }
+}

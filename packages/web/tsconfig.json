@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "//moduleResolution": "base 用 NodeNext(Node 執行的 package 需要);web 由 Vite 打包,internal import 不帶副檔名,所以這裡改成 Bundler 解析,否則 tsc 會要求每個相對 import 都寫 .tsx。",
+  "//types": "刻意不含 node:瀏覽器程式碼不該讓 process.env 之類的東西通過型別檢查。",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["@testing-library/jest-dom"]
+  },
+  "include": ["src", "test"]
+}

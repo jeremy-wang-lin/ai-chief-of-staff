@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens — 值逐一照抄自 docs/lcos-ui-mockup.html 的 <style> 區塊。
+ * mockup 的變數命名已與本專案一致(--bg/--surface/--accent/--ai/--warn/--danger …),
+ * 無需改名對映;唯一額外帶過來的是 --mono(mockup 用於 id、日期等 tabular 文字)。
+ * 三段結構同樣照抄::root(亮色)→ @media (prefers-color-scheme: dark) → :root[data-theme] 手動覆蓋,
+ * 手動覆蓋排在最後,因此使用者切換主題永遠勝過系統偏好。
+ */
+
+:root {
+  --bg: #F6F7F4; --surface: #FFFFFF; --surface2: #EEF0EB; --sunk: #E7EAE4;
+  --ink: #1E2622; --muted: #5F6B64; --line: #DDE2DB; --line2: #C8CFC6;
+  --accent: #206E58; --accent-soft: #E3EEE9;
+  --ai: #7A5FB8; --ai-soft: #EFEAF8;
+  --warn: #A9761C; --warn-soft: #F6EEDD;
+  --danger: #B0473A; --danger-soft: #F6E6E3;
+  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161B18; --surface: #1F2621; --surface2: #262E28; --sunk: #131714;
+    --ink: #E6EAE6; --muted: #96A29A; --line: #313B34; --line2: #404C43;
+    --accent: #4FA98D; --accent-soft: #24352E;
+    --ai: #A18BD8; --ai-soft: #2E2840;
+    --warn: #CF9A3F; --warn-soft: #38301D;
+    --danger: #D06A5B; --danger-soft: #3B2622;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #161B18; --surface: #1F2621; --surface2: #262E28; --sunk: #131714;
+  --ink: #E6EAE6; --muted: #96A29A; --line: #313B34; --line2: #404C43;
+  --accent: #4FA98D; --accent-soft: #24352E;
+  --ai: #A18BD8; --ai-soft: #2E2840;
+  --warn: #CF9A3F; --warn-soft: #38301D;
+  --danger: #D06A5B; --danger-soft: #3B2622;
+}
+
+:root[data-theme="light"] {
+  --bg: #F6F7F4; --surface: #FFFFFF; --surface2: #EEF0EB; --sunk: #E7EAE4;
+  --ink: #1E2622; --muted: #5F6B64; --line: #DDE2DB; --line2: #C8CFC6;
+  --accent: #206E58; --accent-soft: #E3EEE9;
+  --ai: #7A5FB8; --ai-soft: #EFEAF8;
+  --warn: #A9761C; --warn-soft: #F6EEDD;
+  --danger: #B0473A; --danger-soft: #F6E6E3;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  /* 字級/行高同樣照 mockup 的 `font: 15px/1.7 …`,不帶過來整體密度就會跟設計稿對不上。 */
+  font-size: 15px;
+  line-height: 1.7;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+}
