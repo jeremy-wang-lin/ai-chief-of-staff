@@ -9,12 +9,26 @@ coverage/
 .env
 .env.*
 !.env.example
+.npmrc
+opencode.json
+opencode.jsonc
 *.db
 *.db-*
 *.sqlite
 *.sqlite-*
 *.sqlite3
 *.sqlite3-*
+
+# Company-local AI agent overlay (delivered separately, never committed)
+.claude/
+.agents/
+.codex/
+.mcp.json
+AGENT.md
+AGENTS.md
+CLAUDE.md
+COMPANY-LOCAL.md
+docs/
 
 # OS and editor files
 .DS_Store
